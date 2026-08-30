@@ -1,4 +1,6 @@
 import JobBoard from "@/components/JobBoard";
+import JobForm from "@/components/JobForm";
+import LiveJobBoard from "@/components/LiveJobBoard";
 import WorkerStatus from "@/components/WorkerStatus";
 import { fetchJobs , fetchworkerStatus } from "@/lib/api";
 
@@ -13,7 +15,8 @@ export default async function Home() {
     return (
         <main className="min-h-screen p-8" style={{backgroundColor : "#fafafa" }}>
           <WorkerStatus status={workerStatus} />
-          <JobBoard jobs={jobs} />
+          <JobForm/>
+          <LiveJobBoard initialJobs={jobs} />
         </main>
     )
 }
