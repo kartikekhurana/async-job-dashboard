@@ -7,7 +7,9 @@ export interface WorkerStatus {
     last_heartbeat : string | null;
 }
 export async function fetchJobs(): Promise<Job[]> {
-    const res = await fetch(`${API_URL}/jobs/`);
+    const res = await fetch(`${API_URL}/jobs/`,{
+        cache : 'no-store'
+    });
     if(!res.ok){
         throw new Error('Failed to fetch jobs');
     }
@@ -15,7 +17,9 @@ export async function fetchJobs(): Promise<Job[]> {
 }
 
 export async function fetchWorkerStatus() : Promise<WorkerStatus>{
-    const res = await fetch(`${API_URL}/worker/status`);
+    const res = await fetch(`${API_URL}/worker/status`,{
+        cache : "no-store"
+    });
     if(!res.ok){
         throw new Error("Failed to fetch worker status");
     }
